@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="TextConfig" class="com.utils.TextConfig">
+    </bean>
+
+    <bean id="Sentence2Word" class="com.utils.Sentence2Word">
+    </bean>
+
+
+    <bean id="QASystem" class="com.dialogManager.QASystem" autowire="constructor">
+        <!--构造注入值
+        <constructor-arg type="com.utils.TextConfig" name="textConfig" value="TextConfig"/>
+        -->
+    </bean>
+
+    <bean id="Playpcm" class="com.audioTechAPI.play.Playpcm">
+    </bean>
+
+    <bean id="Voice2pcm" class="com.audioTechAPI.voice2pcmwebapi.Voice2pcm">
+    </bean>
+
+</beans>

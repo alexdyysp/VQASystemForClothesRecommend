@@ -1,0 +1,32 @@
+spring:
+
+  data:
+    #neo4j:
+#      uri: bolt://218.193.154.228
+    #  uri: bolt://127.0.0.1
+    #  port: 7474
+     # username: neo4j
+    #  password: 123456 #sugar,0620
+  #mysql配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1/vqadb?serverTimezone=UTC
+    username: test
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #jpa 配置
+  jpa:
+    hibernate:
+      #项目启动后根据实体类更新数据库的表
+      ddl-auto: update
+      #在控制台输出用到的数据库语句
+    show-sql: true
+  thymeleaf:
+    prefix:
+      classpath: /templates
+    suffix: .html
+    cache: false
+    mode: LEGACYHTML5
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+

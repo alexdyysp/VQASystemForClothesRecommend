@@ -1,0 +1,18 @@
+{
+  "name": "iat-demo",
+  "version": "1.0.0",
+  "description": "iat-demo",
+  "private": true,
+  "scripts": {
+    "client:static-server": "http-server --port 8080 src/",
+    "client:opener-server": "opener http://127.0.0.1:8080",
+    "dev": "npm-run-all --parallel client:*"
+  },
+  "author": "iflytek.com",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "opener": "^1.5.1",
+    "npm-run-all": "^4.1.5"
+  }
+}

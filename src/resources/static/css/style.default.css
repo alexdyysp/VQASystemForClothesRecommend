@@ -1,0 +1,151 @@
+/***
+ * Created by: cai zhijian
+ * Date: August 18, 2019
+***/
+
+/*@import url('../fonts/roboto.css');*/
+@import url('plugins/jquery.alerts.css');
+@import url('plugins/uniform.tp.css');
+@import url('plugins/jquery.ui.css');
+@import url('plugins/jquery.ui.autocomplete.css');
+@import url('plugins/fullcalendar.css');
+@import url('plugins/colorbox.css');
+@import url('plugins/colorpicker.css');
+@import url('plugins/jquery.jgrowl.css');
+@import url('plugins/jquery.tagsinput.css');
+@import url('plugins/ui.spinner.css');
+@import url('plugins/jquery.chosen.css');
+
+
+/***** 1. RESET STYLE *****/
+/**************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+/***** 2. GENERAL STYLES *****/
+/*****************************/
+
+
+body { font-size: 12px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; color: #666; line-height: 21px; }
+input, select, textarea, button { font-size: 12px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; outline: none; margin: 0; }
+a { text-decoration: none; color: #666; outline: none; }
+button { outline: none; }
+a img { border: 0; }
+h1,h2,h3,h4,h5, span.h3 { font-family: 'RobotoBoldCondensed', Arial, Helvetica, sans-serif; font-weight: normal; }
+small { font-size: 11px; }
+h1 { font-size: 32px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+h5 { font-size: 14px; }
+
+span.h3 { font-size: 24px; display: block; }
+
+body.withvernav { background: #fff url(../images/login_images/line.ccc.png) repeat-y 230px 0; } /* with left menu*/
+body.withmenucoll { background-position: 55px 0; } /* with menu style 1 in collapsed mode */
+body.withmenucoll2 { background-position: 35px 0; } /* with menu style 2 in collapsed mode */
+
+
+/***** 3. COLUMN STYLE *****/
+/***************************/
+
+
+.one_half{ width:48.5%; }
+.one_third{ width:31.16%; }
+.two_third{ width:65.83%; }
+.one_fourth{ width:22.5%; }
+.three_fourth{ width:74.5%; }
+.one_fifth{ width:17.3%; }
+.two_fifth{ width:38.1%; }
+.three_fifth{ width:58.9%; }
+.four_fifth{ width:67.7%; }
+.one_sixth{ width:13.83%; }
+.five_sixth{ width:83.17%; }
+
+.one_half,.one_third,.two_third,.three_fourth,.one_fourth,.one_fifth,
+.two_fifth,.three_fifth,.four_fifth,.one_sixth,.five_sixth{ position:relative; margin-right:3%; float:left; }
+
+.last{ margin-right:0 !important; clear:right; }
+.copyrights{
+	text-indent:-9999px;
+	height:0;
+	line-height:0;
+	font-size:0;
+	overflow:hidden;
+}
+
+
+/***** 4. LOGIN PAGE *****/
+/*************************/
+
+.loginpage { background: #fff url(../images/login_images/patternbg.png); }
+.loginbox {
+	width: 350px; padding: 5px; background: #fff; margin: 7% auto 0 auto; -moz-border-radius: 2px; -webkit-border-radius: 2px;
+	border-radius: 2px; -moz-box-shadow: 0 0 2px rgba(0,0,0,0.3); -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.3);
+	box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+.loginboxinner {
+	padding: 20px; background: #32415a url(../images/login_images/patternbg.png); -moz-border-radius: 0 2px 2px 0;
+	-webkit-border-radius: 0 0 2px 2px; border-radius: 0 0 2px 2px;
+}
+.loginbox .logo_login { text-align: center; }
+.loginbox .logo_login h1 {
+	text-align: center;
+	font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif; font-size: 32px; color: #fff; border-bottom: 1px solid #56647d;
+	line-height: normal; margin-bottom: 5px;
+}
+.loginbox .logo_login h1 span { color: #FB9337; }
+.loginbox .logo_login p { font-weight: bold; color: #eee; font-style: italic; }
+
+.loginbox form { display: block; margin-top: 20px; }
+.loginbox .username {
+	background: #eee url(../images/login_images/username.png) no-repeat 13px center; -moz-border-radius: 2px; -webkit-border-radius: 2px;
+	border-radius: 2px; -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.4); -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.4); margin: 20px 0;
+}
+.loginbox .usernameinner {
+	margin-left: 45px; border-left: 1px solid #ddd; background: #fff; padding-right: 20px;
+	-moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px;
+}
+.loginbox .username input {
+	padding: 15px 10px; border: 0; font-size: 14px; width: 100%; box-shadow: none; color: #666;
+	font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif; -moz-border-radius: 0 2px 2px 0; -webkit-border-radius: 0 2px 2px 0;
+	border-radius: 0 2px 2px 0;
+}
+.loginbox .password {
+	background: #eee url(../images/login_images/password.png) no-repeat 13px center; -moz-border-radius: 2px; -webkit-border-radius: 2px;
+	border-radius: 2px; -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.4); -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.4); margin: 20px 0; overflow: hidden;
+}
+.loginbox .passwordinner { margin-left: 45px; border-left: 1px solid #ddd; background: #fff; }
+.loginbox .password input {
+	padding: 15px 10px; border: 0; font-size: 14px; width: 330px; box-shadow: none; color: #666;
+	font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif;
+}
+
+.loginbox button {
+	background: #f0801d url(../images/login_images/btngrad.png) repeat-x top left; border: 0; padding: 15px 0; text-align: center;
+	font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; width: 100%; text-transform: uppercase;
+	-moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.4); box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.loginbox button:hover { background-color: #f0721e; }
+.loginbox .keep { margin-top: 20px; font-weight: bold; color: #ccc; font-size: 11px; }
+.loginbox .loginmsg {
+	background: #fffccc; color: #333; margin-bottom: 10px; padding: 5px; text-align: center; font-size: 11px;
+	-moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px;
+}
