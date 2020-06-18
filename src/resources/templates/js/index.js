@@ -14,7 +14,7 @@
  */
  
 // 音频转码worker
-let recorderWorker = new Worker('./transformpcm.worker.js')
+let recorderWorker = new Worker('./js/transformpcm.worker.js')
 // 记录处理的缓存音频
 let buffer = []
 let AudioContext = window.AudioContext || window.webkitAudioContext

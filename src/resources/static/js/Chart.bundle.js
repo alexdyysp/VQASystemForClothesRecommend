@@ -6333,7 +6333,7 @@ defaults._set('bar', {
 
 defaults._set('horizontalBar', {
 	hover: {
-		mode: 'templates.index',
+		mode: 'templates.js.index',
 		axis: 'y'
 	},
 
@@ -6389,7 +6389,7 @@ defaults._set('horizontalBar', {
 				return datasetLabel + ': ' + item.xLabel;
 			}
 		},
-		mode: 'templates.index',
+		mode: 'templates.js.index',
 		axis: 'y'
 	}
 });
