@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class tts implements Runnable {
     private String text;
 
-    public Voice2pcm voice2pcm;
+    public Voice2pcm voice2pcm = null;
 
     public Playpcm playpcm;
 

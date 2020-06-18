@@ -1,6 +1,7 @@
 package com.web;
 
 import com.audioTechAPI.play.Playpcm;
+import com.audioTechAPI.playByPath;
 import com.audioTechAPI.tts;
 import com.audioTechAPI.voice2pcmwebapi.Voice2pcm;
 import com.dialogManager.QASystem;
@@ -9,6 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import static org.apache.xmlbeans.impl.schema.StscState.start;
 
 
 @CrossOrigin
@@ -50,6 +53,15 @@ public class WebController {
         model.addAttribute("answer", "测试按钮一下");
 
         return "index";
+    }
+
+    @PostMapping("/jump2index")
+    public void playBackground(){
+        Playpcm playpcm = ac.getBean("Playpcm", Playpcm.class);
+        String filepath = "D:\\DHU\\clothRec\\iat_ws_js_demo\\src\\resources\\tts\\helloaudio.pcm";
+        //String output = "欢迎光临，请问有什么可以帮您的嘛";
+        /* TTS */
+        new Thread(new playByPath(filepath = filepath, playpcm = playpcm)).start();
     }
 
 }

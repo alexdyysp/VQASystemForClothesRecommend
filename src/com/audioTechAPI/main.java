@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 
 public class main {
     public static void main(String[] args) throws Exception {
-        Playpcm playpcm = new Playpcm();
+        Playpcm playpcm = new Playpcm(null);
         Voice2pcm voice2pcm = new Voice2pcm();
 
-        voice2pcm.setText("随便试一下这件衣服吧");
+        voice2pcm.setText("欢迎光临，请问需要什么帮助");
         System.out.println(voice2pcm.getText());
 
         String path = voice2pcm.transform();

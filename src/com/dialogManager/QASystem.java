@@ -15,6 +15,7 @@ import static com.dialogManager.IentionRecognize.IentionState;
 
 public class QASystem {
     public static int count = 0; //对话轮数
+    public int DS_last = -1; // 上一轮对话状态
     public int DS = 0; //对话状态
     static IentionRecognize ientionRecognize = new IentionRecognize();
     public HashMap<String, String> attr = new HashMap<>();
@@ -60,6 +61,7 @@ public class QASystem {
 
         if(this.DS == 0){
             count++;
+            this.DS_last = DS;
             return Answer2User.askAttrPattern0;
         }
 
@@ -73,6 +75,7 @@ public class QASystem {
                 }
             }
             // 返回推荐结果
+            this.DS_last = DS;
             return Answer2User.clotheRecommand2user(userAttr, textConfig,0);
         }
 
@@ -86,6 +89,7 @@ public class QASystem {
                 }
             }
             // 返回推荐结果
+            this.DS_last = DS;
             return Answer2User.clotheRecommand2user(userAttr, textConfig,1);
         }
 
@@ -102,6 +106,7 @@ public class QASystem {
             }
         }
 
+        this.DS_last = 5;
         return "没听清，请再说一遍...";
     }
 

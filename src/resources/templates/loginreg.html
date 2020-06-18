@@ -149,7 +149,8 @@
                         <p>记住密码</p>
                         <a href="#">忘记密码？</a>
                     </div>
-                    <input type="submit" value="登 录">
+                    <!--<input type="submit" value="登 录" onClick=javascript:windows.location.href="index.html">-->
+                    <input type="button" value="登 录" id="login2" onClick="javascrtpt:window.location.href='index.html'" onclick="playAudio()">
                 </form>
                 <form action="" id="register">
                     <input type="text" placeholder="用户名" name="username">
@@ -163,6 +164,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $("#login2").click(function () {
+            $.ajax({
+                url: "http://localhost:8080/test/jump2index",
+                async: false,
+                type: "POST",
+            });
+        })
+    </script>
 
     <script src="./js/login.js"></script>
 </body>

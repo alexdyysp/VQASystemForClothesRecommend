@@ -9,6 +9,10 @@ public class Playpcm {
     private static Integer waittime = 0;
     private File file = null;
 
+    public Playpcm(String filepath){
+        this.filepath = filepath;
+    }
+
     public String getFilepath(){
         return this.filepath;
     }
@@ -68,9 +72,9 @@ public class Playpcm {
     }
 
     public static void main(String[] args) {
-        Playpcm playpcm = new Playpcm();
-        String filepath = "resource\\tts\\20200403103047281.pcm";
 
+        String filepath = "resource\\tts\\20200403103047281.pcm";
+        Playpcm playpcm = new Playpcm(filepath);
         try{
             playpcm.setFilepath(filepath);
             playpcmbypath();

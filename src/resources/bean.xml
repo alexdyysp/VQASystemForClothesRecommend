@@ -17,6 +17,7 @@
     </bean>
 
     <bean id="Playpcm" class="com.audioTechAPI.play.Playpcm">
+        <constructor-arg name="filepath" value="null"/>
     </bean>
 
     <bean id="Voice2pcm" class="com.audioTechAPI.voice2pcmwebapi.Voice2pcm">
