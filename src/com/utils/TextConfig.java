@@ -87,6 +87,7 @@ public class TextConfig {
     public static void main(String[] args) {
         TextConfig tc = new TextConfig();
         //tc.read();
+        System.out.println(tc.reco.keySet().contains("大胸"));
         System.out.println(tc.getRec("",0));
         String key = "鹅蛋脸";
         System.out.println(key + tc.getRec(key,0));

@@ -32,7 +32,7 @@ public class Playpcm {
 
         try {
             File file = new File(filepath);
-            System.out.println(file.length());
+            //System.out.println(file.length());
             int offset = 0;
             int bufferSize = Integer.valueOf(String.valueOf(file.length())) ;
             byte[] audioData = new byte[bufferSize];

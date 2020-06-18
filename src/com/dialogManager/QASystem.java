@@ -23,10 +23,12 @@ public class QASystem {
     public HashSet<String> attrarry = new HashSet<>();
     public TextConfig textConfig;
     public Sentence2Word sentence2Word;
+    public Answer2User answer2User;
 
-    public QASystem(TextConfig textConfig, Sentence2Word sentence2Word){
+    public QASystem(TextConfig textConfig, Sentence2Word sentence2Word, Answer2User answer2User){
         this.textConfig = textConfig;
         this.sentence2Word = sentence2Word;
+        this.answer2User = answer2User;
         attr.put("脸型",null);
         attr.put("身材",null);
         attr.put("体型",null);
@@ -49,60 +51,79 @@ public class QASystem {
         List<String> input = sentence2Word.segmenter.sentenceProcess(user_input);
         String[] arr = input.toArray(new String[input.size()]);
 
-        /*
         for(int i=0; i<arr.length; i++){
             System.out.print(arr[i]+" ");
         }
         System.out.println();
-        */
 
+
+        /* Processer: Intention Recognize
+        */
         this.DS = ientionRecognize.intentionRec(arr);
         System.out.println("意图识别结果：" + IentionState[this.DS]);
 
-        if(this.DS == 0){
+        System.out.println("上一轮状态：" + this.DS_last);
+        System.out.println("这一轮状态：" + this.DS);
+
+        if(this.DS == 0 && this.DS_last==-1){
             count++;
             this.DS_last = DS;
-            return Answer2User.askAttrPattern0;
+            return answer2User.getAskAttrPattern();
+        }
+
+        if(this.DS == 1 && this.DS_last==0){
+            count++;
+            this.DS_last = DS;
+            for(int i=0; i<arr.length; i++){
+                if(textConfig.reco.keySet().contains(arr[i])){
+                    userAttr.add(arr[i]);
+                }
+            }
+            return answer2User.getAskAttrPattern();
+        }
+
+        if(this.DS == 1 && this.DS_last == 1){
+            count++;
+            // 填充属性槽
+            // 如果有属性词，userAttr
+            for(int i=0; i<arr.length; i++){
+                if(textConfig.reco.keySet().contains(arr[i])){
+                    userAttr.add(arr[i]);
+                }
+            }
+            // 返回推荐结果
+            this.DS_last = DS;
+            return answer2User.clotheRecommand2user(userAttr, textConfig,0);
         }
 
         if(this.DS == 1){
             count++;
-            // 填充属性槽
-            // 如果有属性词，userAttr
+            this.DS_last = DS;
             for(int i=0; i<arr.length; i++){
-                if(attrarry.contains(arr[i])){
+                if(textConfig.reco.keySet().contains(arr[i])){
                     userAttr.add(arr[i]);
                 }
             }
-            // 返回推荐结果
-            this.DS_last = DS;
-            return Answer2User.clotheRecommand2user(userAttr, textConfig,0);
+            return answer2User.getAskAttrPattern();
         }
 
         if(this.DS == 2){
             count++;
-            // 填充属性槽
-            // 如果有属性词，userAttr
-            for(int i=0; i<arr.length; i++){
-                if(attrarry.contains(arr[i])){
-                    userAttr.add(arr[i]);
-                }
-            }
             // 返回推荐结果
             this.DS_last = DS;
-            return Answer2User.clotheRecommand2user(userAttr, textConfig,1);
+            return answer2User.clotheRecommand2user(userAttr, textConfig,1);
         }
 
         if(this.DS == 4 || this.DS == 3){
             count++;
 
-            return Answer2User.Pattern6;
+            return answer2User.Pattern6;
         }
 
         if(this.DS == 6){
             for(int i=0; i<arr.length; i++){
                 if(textConfig.info.containsKey(arr[i]))
-                    return Answer2User.clotheInfo2user(textConfig, arr[i]);
+                    return answer2User.clotheInfo2user(textConfig, arr[i]);
             }
         }
 
@@ -113,7 +134,8 @@ public class QASystem {
     public static void main(String[] args){
         TextConfig textConfig = new TextConfig();
         Sentence2Word sentence2Word = new Sentence2Word();
-        QASystem qasystem = new QASystem(textConfig,sentence2Word);
+        Answer2User answer2User = new Answer2User();
+        QASystem qasystem = new QASystem(textConfig,sentence2Word, answer2User);
         //System.out.println(dm.attrarry);
         System.out.println(qasystem.dialoge("推荐一件衣服吧"));
         System.out.println(qasystem.dialoge("我是直筒型身材"));

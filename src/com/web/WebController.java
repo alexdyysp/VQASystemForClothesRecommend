@@ -11,9 +11,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import static org.apache.xmlbeans.impl.schema.StscState.start;
-
-
 @CrossOrigin
 @RestController
 @RequestMapping("/test")

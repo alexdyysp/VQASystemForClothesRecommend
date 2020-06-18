@@ -9,6 +9,8 @@
     <bean id="Sentence2Word" class="com.utils.Sentence2Word">
     </bean>
 
+    <bean id="Answer2User" class="com.dialogManager.Answer2User">
+    </bean>
 
     <bean id="QASystem" class="com.dialogManager.QASystem" autowire="constructor">
         <!--构造注入值
