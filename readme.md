@@ -21,7 +21,7 @@
 
 ## 项目架构
 
-![1593068334586](C:\Users\AlexDyy\AppData\Roaming\Typora\typora-user-images\1593068334586.png)
+![1593068334586](https://github.com/alexdyysp/VQASystemForClothesRecommend/blob/master/img/archt.JPG)
 
 
 
