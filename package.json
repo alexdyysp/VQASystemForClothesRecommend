@@ -11,7 +11,7 @@
   "author": "iflytek.com",
   "license": "ISC",
   "devDependencies": {
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "opener": "^1.5.1",
     "npm-run-all": "^4.1.5"
   }
